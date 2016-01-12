@@ -1,0 +1,137 @@
+@import "reset.css";
+
+@font-face {
+  font-family: a_LCDNova;
+  src: url("font.otf");
+}
+
+/***/
+
+body{
+	color: #222;
+	background-color: white;
+	font-size: 14pt;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+	width: 100%;
+}
+
+a{
+	color: black;
+	text-decoration: underline;
+}
+
+h1{
+	margin-top: 15px;
+	font-size: 48pt;
+	text-align: center;
+	text-decoration: underline;
+}
+
+#main{
+	padding: 15px;
+	width: 650px;
+	margin: 0 auto;
+}
+
+#logo{
+	font-family: a_LCDNova;
+	font-size: 72pt;
+	text-align: center;
+}
+
+#logo a{
+	text-decoration: none;
+}
+
+#content{
+	width: 100%;
+}
+
+.post{
+	margin-top: 25px;
+	padding-bottom: 25px;
+	border-bottom: 1px solid #323232;
+}
+
+.title{
+	font-size: 18pt;
+	font-weight: bold;
+	float: left;
+	width: 75%;
+}
+
+.date{
+	font-size: 18pt;
+	font-weight: bold;
+	text-align: right;
+	float: right;
+	width: 25%;
+}
+
+.text{
+	padding-top: 30px;
+}
+
+.text img{
+	width: 350px;
+	margin: 15px 150px;
+}
+
+.text p{
+	margin: 15px 55px;
+	font-style: italic;
+}
+
+.admin-form{
+	width: 450px;
+	margin: 15px auto;
+}
+
+input, textarea{
+	width: 100%;
+	border: 1px solid black;
+	padding: 15px;
+	margin: 15px auto;
+	font-size: 14pt;
+	border-radius: 25px;
+}
+
+textarea{
+	height: 250px;
+}
+
+span{
+	font-size: 28pt;
+}
+
+#button{
+	width: 480px;
+	cursor: pointer;
+}
+
+.alert{
+	text-align: center;
+	height: 25px;
+	width: 280;
+	margin: 15px auto;
+	border: 1px solid grey;
+	border-radius: 15px;
+	padding: 5px;
+}
+
+#post-list{
+	margin-top:15px;
+	text-align: center;
+	font-size: 22pt;
+}
+
+table{
+	border: 1px solid black;
+	font-size: 20pt;
+	width: 100%;
+}
+
+td, th{
+	border: 1px solid black;
+	padding: 10px;
+}
