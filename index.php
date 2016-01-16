@@ -2,8 +2,12 @@
 //Debug
 error_reporting(-1) ; // включить все виды ошибок, включая  E_STRICT
 ini_set('display_errors', 'On');  // вывести на экран помимо логов
-//Загружаем настройки и подключаемся к базе
+//Загружаем настройки
 require_once('config.php');
+//Подключение к БД
+$DBC = mysql_connect($host,$user,$pass)
+ or die("Could not connect: " . mysql_error());
+mysql_select_db($db);
 //Узнаем количество записей
 $hmp = mysql_result(mysql_query("SELECT COUNT( * ) FROM  `post`"),0);
 //Загружаем информацию
