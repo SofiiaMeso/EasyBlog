@@ -1,9 +1,14 @@
 <?
+//Настройки блога
+$blog = "Название блога";
+$url = "Адрес блога";
+$login = "Логин администратора";
+$pass = "Пароль администртора";
 //Настройки подключения
-$host = "DB-host";
-$user = "DB-user";
-$pass = "DB-pass";
-$db = "DB-name";
+$host = "Сервер БД";
+$user = "Пользователь БД";
+$pass = "Пароль пользователя БД";
+$db = "Имя БД";
 //Подключение к БД
 $DBC = mysql_connect($host,$user, $pass)
  or die("Could not connect: " . mysql_error());
