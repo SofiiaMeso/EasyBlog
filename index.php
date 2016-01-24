@@ -11,7 +11,7 @@ mysql_select_db($db);
 //Узнаем количество записей
 $hmp = mysql_result(mysql_query("SELECT COUNT( * ) FROM  `post`"),0);
 //Загружаем информацию
-$query =  mysql_query("SELECT `title`,`date`,`text` FROM  `post` ORDER BY `id` DESC");
+$query =  mysql_query("SELECT `id`,`title`,`date`,`text` FROM  `post` ORDER BY `id` DESC");
 ?>
 <!DOCTYPE html>
 <html>
@@ -27,11 +27,12 @@ $query =  mysql_query("SELECT `title`,`date`,`text` FROM  `post` ORDER BY `id` D
 <?
 //Выводим записи
 for ($i=0; $i<$hmp; $i++) {
+$id =  mysql_result($query,$i,'id');
 $title =  mysql_result($query,$i,'title');
 $date =  mysql_result($query,$i,'date');
 $text =  mysql_result($query,$i,'text');
 echo '<div class="post">';
-echo '<div class="title">'.$title.'</div>';
+echo '<div class="title"><a href="'.$url.'/post.php?id='.$id.'">'.$title.'</a></div>';
 echo  '<div class="date">'.$date.'</div>';
 echo  '<div class="text">'.$text.'</div>';
 echo '</div>';

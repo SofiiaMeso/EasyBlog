@@ -25,14 +25,14 @@ require_once('../config.php');
   <div id="content">
     <div class="admin-form">
     <form name="login-form" method="post">
-        <span>Login:</span><br><input name="login" type="text"></input><br>
-        <span>PassWord:</span><br><input name="passwd" type="password"></input><br>
+        <span>Логин:</span><br><input name="login" type="text"></input><br>
+        <span>Пароль:</span><br><input name="passwd" type="password"></input><br>
         <input class="button" name="ok" type="submit" value="Login"></input>
     </form>
     </div>
 <?
  if (isset($_POST['ok'])) {
-  	if ($_POST['login']==$login and $_POST['passwd']=$pass) {
+  	if ($_POST['login']==$login and $_POST['passwd']==$passwd) {
   		$_SESSION['auth']="logged";
   		echo "<script>alert('Вход выполнен!');document.location.href='".$url."/admin';</script>";
   } else {

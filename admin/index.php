@@ -23,6 +23,24 @@ $hmp = mysql_result(mysql_query("SELECT COUNT( * ) FROM  `post`"),0);
   <link rel="stylesheet" href="../style.css">
   <meta charset="UTF-8">
   <META NAME="ROBOTS" CONTENT="NOINDEX,NOFOLLOW">
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+  <script type="text/javascript"> 
+  
+    function hideBtn(){
+      $('#upload').hide();
+      $('#res').html("Идет загрузка файла");
+    }
+    
+    function handleResponse(mes) {
+      $('#upload').show();
+        if (mes.errors != null) {
+          $('#res').html("Возникли ошибки во время загрузки файла: " + mes.errors);
+        } 
+        else {
+          $('#res').html("Файл " + mes.name + " загружен в каталог /files/"); 
+        } 
+    }
+  </script> 
 </head>
 <body>
 <div id="main">
@@ -31,13 +49,18 @@ $hmp = mysql_result(mysql_query("SELECT COUNT( * ) FROM  `post`"),0);
   <div id="content">
 <!--Форма добавления поста-->
     <div id="add" class="admin-form">
-    <h1>New post</h1>
+    <h1>Новая запись</h1>
     <form name="add-form" method="post">
-        <span>Title:</span><br><input name="title" type="text"></input><br>
-        <span>Text:</span><br><textarea name="text" type="text" maxlength="10000"></textarea><br>
-        <input class="button" name="add" type="submit" value="Add"></input>
+        <span>Заголовок:</span><br><input name="title" type="text"></input><br>
+        <span>Текст:</span><br><textarea name="text" type="text" maxlength="10000"></textarea><br>
+        <input class="button" name="add" type="submit" value="Добавить"></input>
     </form>
-    </div>
+    <form action="upload.php" method="post" target="hiddenframe" enctype="multipart/form-data" onsubmit="hideBtn();">
+      <input type="file" id="userfile" name="userfile" />
+      <input class="button" type="submit" name="upload" id="upload" value="Прикрепить файл" />
+    </form>
+    <div id="res"></div>
+    <iframe id="hiddenframe" name="hiddenframe" style="width:0px; height:0px; border:0px"></iframe>
 <?
  if (isset($_POST['add'])) {
   if (!empty($_POST['title']) and !empty($_POST['text'])) {

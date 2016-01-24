@@ -27,7 +27,7 @@ if ($hmp==0) {
 $query = mysql_query("SELECT * FROM `post` WHERE `id`=".$id);
 $id =  mysql_result($query,0,'id');
 $title =  mysql_result($query,0,'title');
-$text =  htmlspecialchars(mysql_result($query,0,'text'), ENT_QUOTES);
+$text =  mysql_result($query,0,'text');
 $date = mysql_result($query,0,'date');
 ?>
 <!DOCTYPE html>
@@ -40,7 +40,7 @@ $date = mysql_result($query,0,'date');
 </head>
 <body>
 <div id="main">
-  <div id="logo">&lt;? <?echo '<a href="'.$url.'">'.$blog.'</a>'?> ?&gt;</div>
+  <div id="logo">&lt;? <?echo '<a href="'.$url.'/admin">'.$blog.'</a>'?> ?&gt;</div>
   <hr>
   <div id="content">
 <?
@@ -56,8 +56,8 @@ echo '</div>';
     <form name="change-form" method="post">
           <span>ID:</span><br><input name="chid" type="text" readonly value="<?echo $id;?>"></input><br>
           <span>Title:</span><br><input name="chtitle" value="<?echo $title;?>" type="text"></input><br>
-          <span>Text:</span><br><textarea name="chtext" type="text" maxlength="10000"><?echo $text;?></textarea><br>
-          <input class="button" name="change" type="submit" value="Change"></input>
+          <span>Text:</span><br><textarea name="chtext" type="text" maxlength="10000"><?echo htmlspecialchars($text, ENT_QUOTES);?></textarea><br>
+          <input class="button" name="change" type="submit" value="Изменить"></input>
     </form>
     </div>
     <form name="delete-form" method="post">
